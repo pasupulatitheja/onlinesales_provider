@@ -1,0 +1,38 @@
+<html>
+<body>
+<table align="center" >
+    <tr>
+        <th>{% include 'include.html' %}</th>
+    </tr>
+    <tr>
+        <th>{% include 'bar.html' %}</th>
+    </tr>
+</table>
+<br><br><br><br><br><br>
+
+<table align="center" cellpadding="6" cellspacing="6" border="1" >
+    <tr>
+        <th style="width: 4cm">Merchant Id Number</th>
+        <th style="width: 4cm">Merchant Name</th>
+        <th style="width: 4cm">Merchant Contact Number</th>
+        <th style="width: 4cm">Merchant Email-Id</th>
+        <th style="width: 4cm">Merchant Password</th>
+        <th style="width: 4cm">Delete Merchant</th>
+
+    </tr>
+    {% for detail in details %}
+        <tr>
+        <th>{{ detail.id }}</th>
+        <th>{{ detail.name }}</th>
+        <th>{{ detail.contact }}</th>
+        <th>{{ detail.email }}</th>
+        <th>{{ detail.password }}</th>
+            <th><a href="{% url 'delete' %}?del_no={{ detail.id }}"><button class=" btn btn-danger" type="submit" style="text-align: center">Yes</button></a></th>
+    </tr>
+    {% endfor %}
+</table>
+<span>
+    <h3 style="alignment: center;color: salmon">{{ message }}</h3>
+</span>
+</body>
+</html>
